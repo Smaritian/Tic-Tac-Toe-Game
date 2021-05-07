@@ -14,27 +14,24 @@ export default{
     number: Number,
   },
   methods:{
+    //handleClick
     handleClick:function(){
-      if(this.current[this.number] == 'X' || this.current[this.number] == 'O'){
-        return;
-      }
+      //判断是否获胜
+      if(this.IsWon){ return; }
+      //判断格子是否为空
+      if(this.current[this.number] == 'X' || this.current[this.number] == 'O'){ return; }
+      //调用父类changeState方法
       this.$emit('changeState',this.number);
+      //调用父类storeHistory方法
       this.$emit('store',this.number);
-      if(this.IsWon){
-        return;
-      }
+      //调用父类IsWon方法
       this.$emit('isWon');
+      //调用父类changeSide方法
       this.$emit('changeSide');
+      //调用父类counter方法
       this.$emit('counter');
     },
   },
-  data(){
-    return{
-      step: null,
-    }
-  },
-  computed:{
-  }
 }
 </script>
 

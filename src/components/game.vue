@@ -25,7 +25,7 @@
                     <square :buttonState = "temp[8]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '8' :IsWon="isWon" :current="temp" />
             </div>
         </div>
-        <div class="history">
+        <div class="timeTravel">
             <ol><button class="historyButton" @click="initGame">Go to the game start</button></ol>
             <ol v-for="(item, index) in history" :key="index">
                 <button class="historyButton" v-if="item" @click="JumpTo(index)" >Go to move #{{index + 1}}</button>
@@ -39,8 +39,6 @@ import square from './square.vue'
 
 export default{
     name: 'game',
-    props:{
-    },
     data(){
         return{
             state: 'X',
@@ -56,6 +54,7 @@ export default{
         square
     },
     methods:{
+        //初始化游戏
         initGame:function(){
             this.state = 'X';
             this.step = '0';
@@ -64,14 +63,12 @@ export default{
             this.temp = Array(9).fill(null);
             this.history = Array(9).fill(null);
         },
+        //更改button的值
         changeState:function(i){
             this.temp[i] = this.state;
         },
+        //轮流落子
         changeSide:function(){
-            // if(this.isWon){
-            //     this.state = null;
-            //     return;
-            // }
             if(this.isXNext){
                 this.state = 'X';
                 this.isXNext = ! this.isXNext;
@@ -80,6 +77,7 @@ export default{
                 this.isXNext = ! this.isXNext;
             }
         },
+        //存储当前棋盘
         storeHistory:function(){
             if(this.isWon){
                 return;
@@ -87,6 +85,7 @@ export default{
             const history = this.temp.slice();
             this.history[this.step] = {history};
         },
+        //判断输赢，指定Winner
         IsWon:function(){
             const lines = [
                 [0, 1, 2],
@@ -106,9 +105,11 @@ export default{
                 }
             }
         },
+        //计步器
         counter:function(){
             this.step++;
         },
+        //跳转功能
         JumpTo:function(i){
             for(let j = 0; j < 9; j++){
                 this.temp[j] = this.history[i].history[j];
@@ -128,8 +129,6 @@ export default{
             }
         },
     },
-    computed:{
-    }
 }
 </script>
 

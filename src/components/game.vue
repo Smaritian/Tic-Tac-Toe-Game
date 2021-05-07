@@ -10,19 +10,19 @@
         </div>
         <div class="board">
             <div class="boardrow">
-                    <square :buttonState = "temp[0]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '0' :IsWon="isWon" :current="temp"/>
-                    <square :buttonState = "temp[1]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '1' :IsWon="isWon" :current="temp" />
-                    <square :buttonState = "temp[2]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '2' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[0]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '0' :IsWon="isWon" :current="temp"/>
+                    <square :buttonState = "temp[1]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '1' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[2]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '2' :IsWon="isWon" :current="temp" />
             </div>
             <div class="boardrow">
-                    <square :buttonState = "temp[3]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '3' :IsWon="isWon" :current="temp" />
-                    <square :buttonState = "temp[4]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '4' :IsWon="isWon" :current="temp" />
-                    <square :buttonState = "temp[5]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '5' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[3]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '3' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[4]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '4' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[5]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '5' :IsWon="isWon" :current="temp" />
             </div> 
             <div class="boardrow">
-                    <square :buttonState = "temp[6]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '6' :IsWon="isWon" :current="temp" />
-                    <square :buttonState = "temp[7]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '7' :IsWon="isWon" :current="temp" />
-                    <square :buttonState = "temp[8]" @changeState = 'changeState' :state = state @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '8' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[6]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '6' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[7]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '7' :IsWon="isWon" :current="temp" />
+                    <square :buttonState = "temp[8]" @changeState = 'changeState' @changeSide = 'changeSide' @store = 'storeHistory' @isWon = 'IsWon' @counter = 'counter' :number = '8' :IsWon="isWon" :current="temp" />
             </div>
         </div>
         <div class="timeTravel">

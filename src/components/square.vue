@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button class="grid" @click.left="$emit('handleClick',number)">{{ state }}</button>
+    <button class="grid" @click.left="$emit('handleClick', number)">
+      {{ state }}
+    </button>
   </div>
 </template>
 

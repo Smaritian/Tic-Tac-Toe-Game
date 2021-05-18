@@ -1,7 +1,9 @@
 <template>
   <div class="game">
-    <div class="gameInfo"></div>
-    <p>Winner: {{ Winner }}</p>
+    <div class="gameInfo">
+      <p v-if="!isWon">Next Player : {{ chessman }}</p>
+      <p v-else>Winner: {{ Winner }}</p>
+    </div>
     <div class="gameBoard">
       <div class="row">
         <square @handleClick="handleClick" :number="0" :state="now[0]" />
@@ -20,14 +22,12 @@
       </div>
     </div>
     <div class="historyButton">
-      <li>
-        <button @click.left="initGame">Go to the game start.</button>
-      </li>
-      <li v-for="(item, index) in history" :key="index">
+      <button @click.left="initGame">Go to the game start.</button>
+      <div v-for="(item, index) in history" :key="index">
         <button @click.left="jumpTo(index)" v-if="item != ''">
-          #{{ index + 1 }}
+          Go to the #{{ index + 1 }} step
         </button>
-      </li>
+      </div>
     </div>
   </div>
 </template>
@@ -38,14 +38,13 @@ import square from "../components/square.vue";
 
 export default {
   components: { square },
-  props: {},
   setup() {
     const now = ref([""]);
     const chessman = ref("X");
     const isWon = ref(false);
     const isBlank = ref(true);
     const Winner = ref("");
-    let history: string[][] = [[]];
+    const history = ref([[""]]);
     let step = 0;
 
     const changeSide = () => {
@@ -57,14 +56,14 @@ export default {
     };
 
     const initGame = () => {
-      now.value = [''];
-      chessman.value = 'X';
+      now.value = [""];
+      chessman.value = "X";
       isWon.value = false;
       isBlank.value = false;
-      Winner.value = '';
-      history = [[]];
+      Winner.value = "";
+      history.value = [[""]];
       step = 0;
-    }
+    };
 
     const isWin = () => {
       const lines = [
@@ -104,22 +103,22 @@ export default {
     };
 
     const storeBoard = () => {
-      history[step] = now.value.slice();
+      history.value[step] = now.value.slice();
       step++;
     };
 
     const jumpTo = (index: number) => {
-      for(let i = 0; i < 9 ; i++){
-        now.value[i] = history[index][i];
+      for (let i = 0; i < 9; i++) {
+        now.value[i] = history.value[index][i];
       }
       for (let i = 8; i > index; i--) {
-        history[i] = [""];
+        history.value[i] = [""];
       }
       step = index + 1;
-      if(index % 2 == 0){
-        chessman.value = 'O';
-      }else{
-        chessman.value = 'X';
+      if (index % 2 == 0) {
+        chessman.value = "O";
+      } else {
+        chessman.value = "X";
       }
       isWin();
     };
@@ -139,6 +138,8 @@ export default {
     return {
       now,
       history,
+      isWon,
+      chessman,
       Winner,
       initGame,
       jumpTo,

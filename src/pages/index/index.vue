@@ -1,39 +1,21 @@
 <template>
-    <view class="content">
-        <image class="logo" src="../../static/logo.png"></image>
-        <view>
-            <text class="title">{{ title }}</text>
-        </view>
+    <view>
+        <img src='../../static/logo.png'>
     </view>
 </template>
 
 <script lang="ts">
-    import {
-        defineComponent
-    } from "vue";
-    export default defineComponent({
-        setup() {
-            return {
-                title: "hello",
-            };
-        },
-    });
+import { defineComponent ,computed } from "vue";
+import { useStore } from 'vuex';
+
+export default defineComponent({
+  setup(){
+      const store = useStore();
+      return( { title: computed(() => store.state.Winner) } );
+  }
+});
 </script>
 
-<style>
-    .content {
-        text-align: center;
-        height: 400upx;
-    }
+<style scoped>
 
-    .logo {
-        height: 200upx;
-        width: 200upx;
-        margin-top: 200upx;
-    }
-
-    .title {
-        font-size: 36upx;
-        color: #8f8f94;
-    }
 </style>

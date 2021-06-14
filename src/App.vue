@@ -15,5 +15,10 @@
     })
 </script>
 <style>
+#app{
+  text-align: center;
+  align-items: center;
+}
+
     /*每个页面公共css */
 </style>
